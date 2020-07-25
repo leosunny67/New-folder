@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button</title>
+</head>
+
+<body>
+    <input type="radio" name="languages" value="javascript">javascript<br>
+    <input type="radio" name="languages" value="python">python<br>
+    <input type="radio" name="languages" value="c++">c++<br>
+
+    <button onclick="select()">language selected</button>
+    <h1 id="result">the language selected is ...</h1>
+
+
+    <h1 id="result1">the movie selected is ...</h1>
+
+    <select id="movies" onchange="select1()">
+        <option value="joker">joker</option>
+        <option value="avenger">avenger</option>
+        <option value="darknight">darknight</option>
+        <option value="justiceleague">justiceleague</option>
+        <option value="wonderwomen">wonderwomen</option>
+    </select>
+
+</body>
+
+</html>
+
+<script>
+    var language = document.getElementsByName("languages")
+
+    function select() {
+        for (var i = 0; i < language.length; i++) {
+            if (language[i].checked) {
+                document.getElementById("result").innerHTML = language[i].value
+            }
+        }
+
+    }
+
+    var movie = document.getElementById("movies").value
+
+    function select1() {
+        document.getElementById("result1").innerHTML = "the selected movie is " + movie
+    }
+</script>
