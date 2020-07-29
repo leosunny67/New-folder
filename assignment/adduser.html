@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            margin-bottom: 10px;
+            margin-top: 50px;
+            text-align: center;
+            text-size-adjust: ;
+            background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+        }
+        
+        h1 {
+            font-size: 50px;
+        }
+        
+        input {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 25px;
+        }
+        
+        select {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="color:#e67e22; font-weight: bolder;">Enter details</h1>
+    <input type="text" placeholder="Name" id="num1"><br>
+    <input type="text" placeholder="Gmail" id="num2"><br>
+
+
+    <select style="margin-top: 10px;size: 39px;" id="role">
+        <option value="Client">Client</option>
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+
+    
+        
+    </select>
+    <h3 style="font-size: 20px;">Gender</h3>
+    <input type="radio" name="genderr" value="Male">Male
+    <input type="radio" name="genderr" value="Female">Female><br>
+
+    <button onclick="Submit()" style="margin-top: 20px;font-size: 20px; background-color: #e0730d">Save</button><br>
+
+    <input type="button" value="Home" style="background-color:#fccb90 ;" onclick="home()">
+
+
+</body>
+
+</html>
+
+<script>
+    let array = []
+
+    function Submit() {
+        var names = document.getElementById("num1").value
+        var email = document.getElementById("num2").value
+        var admin = document.getElementById("role").value
+        var genderarray = document.getElementsByName("genderr")
+        var gender = ''
+        for (var i = 0; i < genderarray.length; i++) {
+            if (genderarray[i].checked) {
+                gender = genderarray[i].value
+            }
+        }
+        array.length = 0
+        array.push(names)
+        array.push(email)
+        array.push(admin)
+        array.push(gender)
+        localStorage.setItem(email, JSON.stringify(array))
+        alert("Submitted")
+
+    }
+
+    function home() {
+        window.location.href = 'homepage.html'
+    }
+</script>

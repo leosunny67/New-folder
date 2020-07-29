@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+            height: 100vh;
+        }
+        
+        .col-md-4 {
+            margin: 100px;
+            background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        input {
+            margin: 10px;
+            margin-right: 2px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+
+            <form>
+
+                <h1 class="text-center" id="aut">Authentication</h1>
+                <input type="text" placeholder="username" id="username" class="form-control">
+                <input type="text" placeholder="password" id="password" class="form-control">
+                <input type="button" value="login" class="btn btn-primary" onclick="validate()">
+
+
+
+
+            </form>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+    function validate() {
+        var username = document.getElementById("username").value
+        var password = document.getElementById("password").value
+        var flag = 0;
+
+
+        $.ajax({
+
+            url: 'http://www.json-generator.com/api/json/get/cdXWUOxUgO?indent=2',
+            type: 'get',
+            datatype: 'json',
+
+            success: function(response) {
+
+                /* console.log(typeof(response.authentication[0].username)) */
+                /* if (response.authentication[1] == username1) {
+                    if (response.authentication[1] == password1) {
+                        flag = 1
+                        alert('login successfulll')
+                        window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+                    }
+                } */
+                for (var i = 0; i < response.authentication.length; i++) {
+                    if (response.authentication[i].username == username) {
+                        if (response.authentication[i].password == password) {
+                            flag = 1
+                            alert('login successfulll')
+                            window.location.href = 'homepage.html'
+
+                        }
+
+                    }
+                }
+                if (flag == 0) {
+                    alert('login failed')
+                }
+            },
+            error: function(error) {
+                console.table(error);
+            },
+
+            always: function() {}
+
+
+        })
+
+
+        /* if (username == 'leo' && password == 'sunny') {
+            alert('login successfulll')
+            window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+        } else {
+            alert('login failed')
+        }
+
+        if (username == 'gautham' && password == '123') {
+            alert('login successfulll')
+            window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+        } else {
+            alert('login failed')
+        }
+
+        if (username == 'jithin' && password == '456') {
+            alert('login successfulll')
+            window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+        } else {
+            alert('login failed')
+        } */
+        /* var ch = 3;
+        switch (username) {
+            case 'leo':
+                if (username == 'leo' && password == 'sunny') {
+                    alert('login successfulll')
+                    window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+
+                } else {
+                    alert('login failed');
+
+                }
+                break;
+            case 'gautham':
+                if (username == 'gautham' && password == '123') {
+                    alert('login successfulll')
+                    window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+                } else {
+                    alert('login failed');
+
+                }
+                break;
+
+            case 'jithin':
+                if (username == 'jithin' && password == '456') {
+                    alert('login successfulll')
+                    window.location.href = 'http://www.hyperlinkcode.com/button-links.php'
+                } else {
+                    alert('login failed');
+                }
+                break;
+
+            default:
+                alert('login failed') */
+        /* }
+
+        } */
+
+
+
+        /* $.ajax({
+
+            url: 'http://www.json-generator.com/api/json/get/cgxfXXevOq?indent=2',
+            type: 'get',
+            datatype: 'json',
+
+            success: function(response) {
+                console.log(response.length);
+                for (var i = 0; i < response.length; i++) {
+                    var newmeal = "<div class = 'col-md-4 text-center' ><p>" + response.meals[i].strMeal + "</p><img src=" + response.meals[i].strMealThumb + "></div>";
+
+                    $("#meals").append(newmeal)
+                } 
+            },
+            error: function(error) {
+                console.table(error);
+            },
+
+            always: function() {}
+
+
+        }) */
+    }
+</script>
