@@ -1,0 +1,16 @@
+body {
+    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    height: 100vh;
+}
+
+.col-md-4 {
+    margin: 100px;
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input {
+    margin: 10px;
+    margin-right: 2px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link rel="stylesheet" href="css/add.css" />
+</head>
+
+<body>
+
+    <h1 style="font-weight: bolder;">Enter Details</h1>
+    <input type="text" placeholder="Name" id="num1"><br>
+    <input type="text" placeholder="Gmail" id="num2"><br>
+
+
+    <select style="margin-top: 10px;size: 39px;" id="role">
+        <option value="Client">Client</option>
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+
+    
+        
+    </select>
+    <h3 style="font-size: 20px;">Gender</h3>
+    <input type="radio" name="genderr" value="Male">Male
+    <input type="radio" name="genderr" value="Female">Female><br>
+
+    <button onclick="Submit()" style="margin-top: 20px;font-size: 27px; background-color: #e0730d">Save</button><br>
+
+    <input type="button" value="Home" style="background-color:#fccb90 ;margin-top: 12px;" onclick="home()">
+
+
+</body>
+
+<footer>
+    <script src="javascript/add.js">
+    </script>
+</footer>
+
+</html>
